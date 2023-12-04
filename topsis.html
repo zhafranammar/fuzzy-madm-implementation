@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMPLEMENTASI MADM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="vps.png" type="image/png" />
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 py-4">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="text-white text-2xl font-bold">Implementasi MADM</div>
+        <div class="hidden lg:flex space-x-4" id="navLinks">
+          <a href="index.html" class="text-white">Overview</a>
+          <a href="saw.html" class="text-white">SAW</a>
+          <a href="wp.html" class="text-white">WP</a>
+          <a href="ahp.html" class="text-white">AHP</a>
+          <a href="topsis.html" class="text-white font-bold underline"
+            >Topsis</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto py-8 px-4">
+      <h1 class="text-3xl font-bold mb-4">Metode TOPSIS</h1>
+      <p>
+        Pada metode TOPSIS, terlebih dahulu dilakukan proses normalisasi nilai
+        dari masing-masing kriteria untuk setiap penyedia VPS. Normalisasi
+        dilakukan untuk membawa semua nilai ke dalam skala yang sama dan
+        menghilangkan efek dari perbedaan skala. Hasil normalisasi dapat dilihat
+        pada Tabel berikut
+      </p>
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">Tabel Normalisasi</h2>
+      <table id="tabelNormalisasi" class="table-auto w-full mb-8">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Penyedia VPS</th>
+            <th class="border px-4 py-2">Harga</th>
+            <th class="border px-4 py-2">Performa</th>
+            <th class="border px-4 py-2">Keandalan</th>
+            <th class="border px-4 py-2">Fasilitas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+      <!-- Penjelasan Normalisasi -->
+      <p>
+        Setelah normalisasi, langkah berikutnya adalah normalisasi terbobot, di
+        mana nilai-nilai kriteria dinormalisasi dengan mengalikan bobot yang
+        telah ditetapkan untuk setiap kriteria. Selanjutnya, dilakukan
+        perhitungan matrix ideal positif dan matrix ideal negatif untuk
+        menentukan solusi ideal dan solusi negatif dari setiap kriteria. Hasil
+        matriks normalisasi dan matriks ideal positif negatif dapat dilihat pada
+        Tabel berikut
+      </p>
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">
+        Tabel Normalisasi Terbobot, Y+ dan Y-
+      </h2>
+      <table id="tabelNormalisasiTerbobot" class="table-auto w-full mb-8">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Penyedia VPS</th>
+            <th class="border px-4 py-2">Harga</th>
+            <th class="border px-4 py-2">Performa</th>
+            <th class="border px-4 py-2">Keandalan</th>
+            <th class="border px-4 py-2">Fasilitas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+      <!-- Penjelasan Normalisasi Terbobot -->
+      <p>
+        Selanjutnya, dihitung jarak nilai terbobot dari setiap alternatif
+        terhadap solusi ideal positif dan solusi ideal negatif. Nilai V (Vi)
+        yang merupakan hasil akhir dari metode TOPSIS ini digunakan untuk
+        memberikan peringkat relatif dari masing-masing penyedia VPS berdasarkan
+        kriteria yang telah dinilai. Hasil perhitungan lebih detail dapat
+        dilihat pada Tabel berikut
+      </p>
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">
+        Tabel E+, E-, V, dan Rank
+      </h2>
+      <table id="tabelTopsis" class="table-auto w-full">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Penyedia VPS</th>
+            <th class="border px-4 py-2">E+</th>
+            <th class="border px-4 py-2">E-</th>
+            <th class="border px-4 py-2">V</th>
+            <th class="border px-4 py-2">Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+      <!-- Penjelasan E+, E-, V, dan Rank -->
+
+      <script>
+        const dataNormalisasi = [
+          {
+            "Penyedia VPS": "Hostinger",
+            Harga: 0.254575753,
+            Performa: 0.283552482,
+            Keandalan: 0.2804860125,
+            Fasilitas: 0.2917784874,
+          },
+          {
+            "Penyedia VPS": "DigitalOcean",
+            Harga: 0.3054909036,
+            Performa: 0.3189965423,
+            Keandalan: 0.315546764,
+            Fasilitas: 0.3282507984,
+          },
+          {
+            "Penyedia VPS": "Niagahoster",
+            Harga: 0.3564060542,
+            Performa: 0.283552482,
+            Keandalan: 0.315546764,
+            Fasilitas: 0.3282507984,
+          },
+          {
+            "Penyedia VPS": "BiznetGio",
+            Harga: 0.3054909036,
+            Performa: 0.3189965423,
+            Keandalan: 0.2804860125,
+            Fasilitas: 0.3282507984,
+          },
+          {
+            "Penyedia VPS": "Google Cloud",
+            Harga: 0.4073212047,
+            Performa: 0.3544406025,
+            Keandalan: 0.3506075156,
+            Fasilitas: 0.3647231093,
+          },
+          {
+            "Penyedia VPS": "GreenGeeks",
+            Harga: 0.3309484789,
+            Performa: 0.3012745121,
+            Keandalan: 0.3330771398,
+            Fasilitas: 0.3100146429,
+          },
+          {
+            "Penyedia VPS": "Vultr",
+            Harga: 0.2800333283,
+            Performa: 0.3189965423,
+            Keandalan: 0.315546764,
+            Fasilitas: 0.2917784874,
+          },
+          {
+            "Penyedia VPS": "Linode",
+            Harga: 0.3054909036,
+            Performa: 0.3367185724,
+            Keandalan: 0.315546764,
+            Fasilitas: 0.3100146429,
+          },
+          {
+            "Penyedia VPS": "Contabo",
+            Harga: 0.254575753,
+            Performa: 0.3012745121,
+            Keandalan: 0.315546764,
+            Fasilitas: 0.2917784874,
+          },
+          {
+            "Penyedia VPS": "Kamatera",
+            Harga: 0.3309484789,
+            Performa: 0.3367185724,
+            Keandalan: 0.3330771398,
+            Fasilitas: 0.3100146429,
+          },
+        ]
+
+        const dataNormalisasiTerbobot = [
+          {
+            "Penyedia VPS": "Bobot",
+            Harga: 2,
+            Performa: 5,
+            Keandalan: 2,
+            Fasilitas: 1,
+          },
+          {
+            "Penyedia VPS": "Hostinger",
+            Harga: 0.5091515059,
+            Performa: 1.41776241,
+            Keandalan: 0.560972025,
+            Fasilitas: 0.2917784874,
+          },
+          {
+            "Penyedia VPS": "DigitalOcean",
+            Harga: 0.6109818071,
+            Performa: 1.594982711,
+            Keandalan: 0.6310935281,
+            Fasilitas: 0.3282507984,
+          },
+          {
+            "Penyedia VPS": "Niagahoster",
+            Harga: 0.7128121083,
+            Performa: 1.41776241,
+            Keandalan: 0.6310935281,
+            Fasilitas: 0.3282507984,
+          },
+          {
+            "Penyedia VPS": "BiznetGio",
+            Harga: 0.6109818071,
+            Performa: 1.594982711,
+            Keandalan: 0.560972025,
+            Fasilitas: 0.3282507984,
+          },
+          {
+            "Penyedia VPS": "Google Cloud",
+            Harga: 0.8146424095,
+            Performa: 1.772203013,
+            Keandalan: 0.7012150312,
+            Fasilitas: 0.3647231093,
+          },
+          {
+            "Penyedia VPS": "GreenGeeks",
+            Harga: 0.6618969577,
+            Performa: 1.506372561,
+            Keandalan: 0.6661542796,
+            Fasilitas: 0.3100146429,
+          },
+          {
+            "Penyedia VPS": "Vultr",
+            Harga: 0.5600666565,
+            Performa: 1.594982711,
+            Keandalan: 0.6310935281,
+            Fasilitas: 0.2917784874,
+          },
+          {
+            "Penyedia VPS": "Linode",
+            Harga: 0.6109818071,
+            Performa: 1.683592862,
+            Keandalan: 0.6310935281,
+            Fasilitas: 0.3100146429,
+          },
+          {
+            "Penyedia VPS": "Contabo",
+            Harga: 0.5091515059,
+            Performa: 1.506372561,
+            Keandalan: 0.6310935281,
+            Fasilitas: 0.2917784874,
+          },
+          {
+            "Penyedia VPS": "Kamatera",
+            Harga: 0.6618969577,
+            Performa: 1.683592862,
+            Keandalan: 0.6661542796,
+            Fasilitas: 0.3100146429,
+          },
+          {
+            "Penyedia VPS": "Y+",
+            Harga: 0.5091515059,
+            Performa: 1.772203013,
+            Keandalan: 0.7012150312,
+            Fasilitas: 0.3647231093,
+          },
+          {
+            "Penyedia VPS": "Y-",
+            Harga: 0.8146424095,
+            Performa: 1.41776241,
+            Keandalan: 0.560972025,
+            Fasilitas: 0.2917784874,
+          },
+        ]
+
+        const dataTopsis = [
+          {
+            "Penyedia VPS": "Hostinger",
+            "E+": 0.3880942661,
+            "E-": 0.3054909036,
+            V: 0.4404518968,
+            Rank: 8,
+          },
+          {
+            "Penyedia VPS": "DigitalOcean",
+            "E+": 0.2191431041,
+            "E-": 0.2813039829,
+            V: 0.5621053458,
+            Rank: 4,
+          },
+          {
+            "Penyedia VPS": "Niagahoster",
+            "E+": 0.4163568618,
+            "E-": 0.1289056434,
+            V: 0.2364102468,
+            Rank: 10,
+          },
+          {
+            "Penyedia VPS": "BiznetGio",
+            "E+": 0.2505489487,
+            "E-": 0.2724241282,
+            V: 0.5209142501,
+            Rank: 7,
+          },
+          {
+            "Penyedia VPS": "Google Cloud",
+            "E+": 0.3054909036,
+            "E-": 0.3880942661,
+            V: 0.5595481032,
+            Rank: 5,
+          },
+          {
+            "Penyedia VPS": "GreenGeeks",
+            "E+": 0.313399545,
+            "E-": 0.2063463009,
+            V: 0.3970138531,
+            Rank: 9,
+          },
+          {
+            "Penyedia VPS": "Vultr",
+            "E+": 0.2103267239,
+            "E-": 0.3180139531,
+            V: 0.6019107878,
+            Rank: 3,
+          },
+          {
+            "Penyedia VPS": "Linode",
+            "E+": 0.1616515095,
+            "E-": 0.3426266958,
+            V: 0.6794398254,
+            Rank: 1,
+          },
+          {
+            "Penyedia VPS": "Contabo",
+            "E+": 0.2844358842,
+            "E-": 0.3257199351,
+            V: 0.5338307443,
+            Rank: 6,
+          },
+          {
+            "Penyedia VPS": "Kamatera",
+            "E+": 0.1881627073,
+            "E-": 0.3246426747,
+            V: 0.6330718945,
+            Rank: 2,
+          },
+          // Tambahkan data lain sesuai kebutuhan
+        ]
+
+        // Menambahkan data ke tabel Normalisasi
+        const tabelNormalisasi = document.getElementById("tabelNormalisasi")
+        const tbodyNormalisasi = tabelNormalisasi.querySelector("tbody")
+
+        dataNormalisasi.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyNormalisasi.appendChild(row)
+        })
+
+        // Menambahkan data ke tabel Normalisasi Terbobot
+        const tabelNormalisasiTerbobot = document.getElementById(
+          "tabelNormalisasiTerbobot"
+        )
+        const tbodyNormalisasiTerbobot =
+          tabelNormalisasiTerbobot.querySelector("tbody")
+
+        dataNormalisasiTerbobot.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyNormalisasiTerbobot.appendChild(row)
+        })
+
+        // Menambahkan data ke tabel TOPSIS
+        const tabelTopsis = document.getElementById("tabelTopsis")
+        const tbodyTopsis = tabelTopsis.querySelector("tbody")
+
+        dataTopsis.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyTopsis.appendChild(row)
+        })
+      </script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-4">
+      <div class="container mx-auto text-center text-gray-600">
+        &copy; 2023 Muhammad Zhafran Ammar. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

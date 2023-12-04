@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMPLEMENTASI MADM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="vps.png" type="image/png" />
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 py-4">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="text-white text-2xl font-bold">Implementasi MADM</div>
+        <div class="hidden lg:flex space-x-4" id="navLinks">
+          <a href="index.html" class="text-white">Overview</a>
+          <a href="saw.html" class="text-white">SAW</a>
+          <a href="wp.html" class="text-white font-bold underline">WP</a>
+          <a href="ahp.html" class="text-white">AHP</a>
+          <a href="topsis.html" class="text-white">Topsis</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto py-8 px-4">
+      <h1 class="text-3xl font-bold mb-4">Perhitungan Metode WP</h1>
+      <!-- Penjelasan Metode WP -->
+
+      <h2 class="text-xl font-bold mb-2 mt-6 text-center">
+        Tabel Kriteria Bobot untuk Metode WP
+      </h2>
+      <table id="tabelBobot" class="table-auto w-full mb-8">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Kriteria</th>
+            <th class="border px-4 py-2">Bobot</th>
+            <th class="border px-4 py-2">Tipe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+      <!-- Penjelasan Bobot -->
+      <p>
+        Dalam menyelesaikan evaluasi menggunakan metode Weighted Product (WP),
+        langkah pertama yang dilakukan adalah menghitung nilai S dari setiap
+        kriteria yang digunakan untuk menilai penyedia VPS, yaitu Harga,
+        Performa, Keandalan, dan Fasilitas. Proses perhitungan nilai S dilakukan
+        dengan mengalikan nilai-nilai kriteria dengan bobot yang telah
+        ditetapkan untuk setiap kriteria. Perhitungan nilai S dari setiap
+        penyedia VPS dapat dilihat pada tabel berikut.
+      </p>
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">
+        Perhitungan Nilai S
+      </h2>
+      <table id="tabelNilaiS" class="table-auto w-full mb-8">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Penyedia VPS</th>
+            <th class="border px-4 py-2">S</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+
+      <p>
+        Setelah perhitungan nilai S selesai, dilanjutkan dengan menghitung nilai
+        V (Vi) dari setiap penyedia VPS. Nilai V (Vi) ini merupakan hasil dari
+        normalisasi nilai S, di mana nilai S dinormalisasi dengan menghitung
+        akar pangkat ke-n dari hasil perkalian nilai S. Nilai V (Vi) ini
+        digunakan untuk memberikan peringkat relatif dari masing-masing penyedia
+        VPS berdasarkan kriteria yang telah dinilai. Hasil dari perhitungan
+        nilai V (Vi) dan perangkingan dapat dilihat pada Tabel berikut.
+      </p>
+
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">
+        Perhitungan Nilai V
+      </h2>
+      <table id="tabelNilaiV" class="table-auto w-full">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Penyedia VPS</th>
+            <th class="border px-4 py-2">Nilai V</th>
+            <th class="border px-4 py-2">Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+      <!-- Penjelasan Nilai V -->
+
+      <script>
+        // Data JSON untuk tabel Kriteria Bobot Metode WP
+        const dataBobotWP = [
+          {
+            Kriteria: "Harga",
+            Bobot: 0.2,
+            Tipe: "Cost",
+          },
+          {
+            Kriteria: "Performa",
+            Bobot: 0.5,
+            Tipe: "Profit",
+          },
+          {
+            Kriteria: "Keandalan",
+            Bobot: 0.2,
+            Tipe: "Profit",
+          },
+          {
+            Kriteria: "Fasilitas",
+            Bobot: 0.1,
+            Tipe: "Profit",
+          },
+        ]
+
+        // Data JSON untuk tabel Perhitungan Nilai S
+        const dataNilaiS = [
+          {
+            "Penyedia VPS": "Hostinger",
+            S: 2.413670535,
+          },
+          {
+            "Penyedia VPS": "DigitalOcean",
+            S: 2.557194475,
+          },
+          {
+            "Penyedia VPS": "Niagahoster",
+            S: 2.337750391,
+          },
+          {
+            "Penyedia VPS": "BiznetGIo",
+            S: 2.497659622,
+          },
+          {
+            "Penyedia VPS": "Google Cloud",
+            S: 2.626527804,
+          },
+          {
+            "Penyedia VPS": "GreenGeeks",
+            S: 2.458178439,
+          },
+          {
+            "Penyedia VPS": "Vultr",
+            S: 2.571616582,
+          },
+          {
+            "Penyedia VPS": "Linode",
+            S: 2.612293363,
+          },
+          {
+            "Penyedia VPS": "Contabo",
+            S: 2.547258162,
+          },
+          {
+            "Penyedia VPS": "Kamatera",
+            S: 2.598757436,
+          },
+        ]
+
+        // Data JSON untuk tabel Perhitungan Nilai V
+        const dataNilaiV = [
+          {
+            "Penyedia VPS": "Hostinger",
+            V: 0.09570117969,
+            Rank: 9,
+          },
+          {
+            "Penyedia VPS": "DigitalOcean",
+            V: 0.101391853,
+            Rank: 5,
+          },
+          {
+            "Penyedia VPS": "Niagahoster",
+            V: 0.09269097296,
+            Rank: 10,
+          },
+          {
+            "Penyedia VPS": "BiznetGIo",
+            V: 0.09903131719,
+            Rank: 7,
+          },
+          {
+            "Penyedia VPS": "Google Cloud",
+            V: 0.1041408949,
+            Rank: 1,
+          },
+          {
+            "Penyedia VPS": "GreenGeeks",
+            V: 0.09746590231,
+            Rank: 8,
+          },
+          {
+            "Penyedia VPS": "Vultr",
+            V: 0.1019636844,
+            Rank: 4,
+          },
+          {
+            "Penyedia VPS": "Linode",
+            V: 0.1035765043,
+            Rank: 2,
+          },
+          {
+            "Penyedia VPS": "Contabo",
+            V: 0.1009978817,
+            Rank: 6,
+          },
+          {
+            "Penyedia VPS": "Kamatera",
+            V: 0.1030398096,
+            Rank: 3,
+          },
+        ]
+
+        // Menambahkan data ke tabel Kriteria Bobot
+        const tabelBobot = document.getElementById("tabelBobot")
+        const tbodyBobot = document.createElement("tbody")
+
+        dataBobotWP.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyBobot.appendChild(row)
+        })
+
+        tabelBobot.appendChild(tbodyBobot)
+
+        // Menambahkan data ke tabel Perhitungan Nilai S
+        const tabelNilaiS = document.getElementById("tabelNilaiS")
+        const tbodyNilaiS = document.createElement("tbody")
+
+        dataNilaiS.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyNilaiS.appendChild(row)
+        })
+
+        tabelNilaiS.appendChild(tbodyNilaiS)
+
+        // Menambahkan data ke tabel Perhitungan Nilai V
+        const tabelNilaiV = document.getElementById("tabelNilaiV")
+        const tbodyNilaiV = document.createElement("tbody")
+
+        dataNilaiV.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyNilaiV.appendChild(row)
+        })
+
+        tabelNilaiV.appendChild(tbodyNilaiV)
+      </script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-4">
+      <div class="container mx-auto text-center text-gray-600">
+        &copy; 2023 Muhammad Zhafran Ammar. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

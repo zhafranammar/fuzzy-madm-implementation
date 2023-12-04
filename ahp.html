@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMPLEMENTASI MADM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="vps.png" type="image/png" />
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 py-4">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="text-white text-2xl font-bold">Implementasi MADM</div>
+        <div class="hidden lg:flex space-x-4" id="navLinks">
+          <a href="index.html" class="text-white">Overview</a>
+          <a href="saw.html" class="text-white">SAW</a>
+          <a href="wp.html" class="text-white">WP</a>
+          <a href="ahp.html" class="text-white font-bold underline">AHP</a>
+          <a href="topsis.html" class="text-white">Topsis</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto py-8 px-4">
+      <!-- Bagian sebelumnya... -->
+      <h1 class="text-3xl font-bold mb-4">Metode AHP</h1>
+      <p>
+        Dalam rangka menyelesaikan evaluasi penyedia Virtual Private Server
+        (VPS) dengan menggunakan Analytic Hierarchy Process (AHP), terdapat
+        beberapa langkah yang diikuti untuk memperoleh hasil yang lebih terukur
+        dan terperinci. Dua tabel kunci yang digunakan dalam proses evaluasi ini
+        adalah Tabel 1 dan Tabel 2 yang merepresentasikan perhitungan nilai
+        bobot prioritas kriteria dan perangkingan masing-masing penyedia VPS.
+      </p>
+      <p>
+        Tabel 1 menggambarkan langkah awal evaluasi, yaitu proses normalisasi
+        dan pembentukan matriks prioritas kriteria. Dalam matriks perbandingan
+        berpasangan (Normalisasi dan Constant Matrix) pada Tabel 1, terdapat
+        perbandingan relatif antar kriteria yang dilakukan untuk menetapkan
+        bobot prioritas. Kolom-kolom dalam tabel ini mewakili kriteria-kriteria
+        yang dinilai, sementara baris-baris menunjukkan perbandingan antara
+        kriteria tersebut. Setelah proses normalisasi, bobot prioritas untuk
+        masing-masing kriteria dihitung dan disajikan dalam bentuk tabel pada
+        Tabel 1.
+      </p>
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">
+        Tabel 1. Normalisasi Kriteria, Bobot Prioritas, dan Konstanta Matrix
+      </h2>
+      <table id="tabelAHP" class="table-auto w-full mb-8">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Kriteria</th>
+            <th class="border px-4 py-2">K01</th>
+            <th class="border px-4 py-2">K02</th>
+            <th class="border px-4 py-2">K03</th>
+            <th class="border px-4 py-2">K04</th>
+            <th class="border px-4 py-2">Bobot Prioritas</th>
+            <th class="border px-4 py-2">Cont Matrix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+      <p>
+        Selanjutnya, Tabel 2 memperlihatkan hasil perankingan dari setiap
+        penyedia VPS berdasarkan bobot prioritas yang telah ditetapkan pada
+        Tabel 11. Dalam tabel perankingan ini, setiap alternatif (penyedia VPS)
+        dinilai berdasarkan tingkat kesesuaian dengan kriteria yang telah
+        diukur. Misalnya, Google Cloud menduduki peringkat pertama dengan nilai
+        perankingan tertinggi, sementara alternatif lain seperti Hostinger,
+        DigitalOcean, Niagahoster, BiznetGio, GreenGeeks, Linode, Vultr,
+        Contabo, dan Kamatera, memiliki peringkat yang berbeda-beda. Penilaian
+        ini membantu memberikan gambaran yang lebih jelas terkait penyedia VPS
+        mana yang lebih cocok atau sesuai dengan kriteria yang diprioritaskan
+        dalam evaluasi ini.
+      </p>
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">
+        Tabel Perhitungan Nilai dan Ranking setiap Alternatif
+      </h2>
+      <table id="tabelRankingAHP" class="table-auto w-full">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Alternatif</th>
+            <th class="border px-4 py-2">K01</th>
+            <th class="border px-4 py-2">K02</th>
+            <th class="border px-4 py-2">K03</th>
+            <th class="border px-4 py-2">K04</th>
+            <th class="border px-4 py-2">Nilai</th>
+            <th class="border px-4 py-2">Ranking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+
+      <script>
+        const dataAHP = [
+          {
+            Kriteria: "K01",
+            K01: 0.38,
+            K02: 0.38,
+            K03: 0.43,
+            K04: 0.3,
+            "Bobot Prioritas": 0.37,
+            "Cont Matrix": 1.5,
+          },
+          {
+            Kriteria: "K02",
+            K01: 0.13,
+            K02: 0.13,
+            K03: 0.14,
+            K04: 0.1,
+            "Bobot Prioritas": 0.12,
+            "Cont Matrix": 0.5,
+          },
+          {
+            Kriteria: "K03",
+            K01: 0.25,
+            K02: 0.25,
+            K03: 0.29,
+            K04: 0.4,
+            "Bobot Prioritas": 0.3,
+            "Cont Matrix": 1.210714286,
+          },
+          {
+            Kriteria: "K04",
+            K01: 0.25,
+            K02: 0.25,
+            K03: 0.14,
+            K04: 0.2,
+            "Bobot Prioritas": 0.21,
+            "Cont Matrix": 0.8517857143,
+          },
+        ]
+
+        const dataRankingAHP = [
+          {
+            Alternatif: "Hostinger",
+            K01: 0.07,
+            K02: 0.08,
+            K03: 0.08,
+            K04: 0.08,
+            Nilai: 0.07591311088,
+            Ranking: 9,
+          },
+          {
+            Alternatif: "DigitalOcean",
+            K01: 0.09,
+            K02: 0.12,
+            K03: 0.09,
+            K04: 0.12,
+            Nilai: 0.09883624703,
+            Ranking: 5,
+          },
+          {
+            Alternatif: "Niagahoster",
+            K01: 0.11,
+            K02: 0.09,
+            K03: 0.11,
+            K04: 0.09,
+            Nilai: 0.1047618619,
+            Ranking: 3,
+          },
+          {
+            Alternatif: "BiznetGio",
+            K01: 0.09,
+            K02: 0.12,
+            K03: 0.09,
+            K04: 0.12,
+            Nilai: 0.09883624703,
+            Ranking: 5,
+          },
+          {
+            Alternatif: "Google Cloud",
+            K01: 0.15,
+            K02: 0.15,
+            K03: 0.15,
+            K04: 0.15,
+            Nilai: 0.1502948565,
+            Ranking: 1,
+          },
+          {
+            Alternatif: "GreenGeeks",
+            K01: 0.11,
+            K02: 0.12,
+            K03: 0.11,
+            K04: 0.12,
+            Nilai: 0.113049292,
+            Ranking: 2,
+          },
+          {
+            Alternatif: "Vultr",
+            K01: 0.1,
+            K02: 0.09,
+            K03: 0.1,
+            K04: 0.09,
+            Nilai: 0.09686572577,
+            Ranking: 7,
+          },
+          {
+            Alternatif: "Linode",
+            K01: 0.11,
+            K02: 0.09,
+            K03: 0.11,
+            K04: 0.09,
+            Nilai: 0.1047618619,
+            Ranking: 3,
+          },
+          {
+            Alternatif: "Contabo",
+            K01: 0.07,
+            K02: 0.08,
+            K03: 0.08,
+            K04: 0.08,
+            Nilai: 0.07591311088,
+            Ranking: 9,
+          },
+          {
+            Alternatif: "Kamatera",
+            K01: 0.09,
+            K02: 0.07,
+            K03: 0.09,
+            K04: 0.06,
+            Nilai: 0.08076768611,
+            Ranking: 8,
+          },
+        ]
+
+        // Isi tabel Normalisasi Kriteria, Bobot Prioritas, dan Konstanta Matrix
+        const tabelAHP = document.getElementById("tabelAHP")
+        const tbodyAHP = tabelAHP.querySelector("tbody")
+
+        dataAHP.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyAHP.appendChild(row)
+        })
+
+        // Isi tabel Perhitungan Nilai dan Ranking setiap Alternatif
+        const tabelRankingAHP = document.getElementById("tabelRankingAHP")
+        const tbodyRankingAHP = tabelRankingAHP.querySelector("tbody")
+
+        dataRankingAHP.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyRankingAHP.appendChild(row)
+        })
+      </script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-4">
+      <div class="container mx-auto text-center text-gray-600">
+        &copy; 2023 Muhammad Zhafran Ammar. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
