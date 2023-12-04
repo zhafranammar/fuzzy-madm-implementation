@@ -1,0 +1,72 @@
+[
+  {
+    "Penyedia VPS": "Hostinger",
+    "Harga": 50,
+    "Performa": 8,
+    "Keandalan": 8,
+    "Fasilitas": 8
+  },
+  {
+    "Penyedia VPS": "DigitalOcean",
+    "Harga": 60,
+    "Performa": 9,
+    "Keandalan": 9,
+    "Fasilitas": 9
+  },
+  {
+    "Penyedia VPS": "Niagahoster",
+    "Harga": 70,
+    "Performa": 8,
+    "Keandalan": 9,
+    "Fasilitas": 9
+  },
+  {
+    "Penyedia VPS": "BiznetGio",
+    "Harga": 60,
+    "Performa": 9,
+    "Keandalan": 8,
+    "Fasilitas": 9
+  },
+  {
+    "Penyedia VPS": "Google Cloud",
+    "Harga": 80,
+    "Performa": 10,
+    "Keandalan": 10,
+    "Fasilitas": 10
+  },
+  {
+    "Penyedia VPS": "GreenGeeks",
+    "Harga": 65,
+    "Performa": 8.5,
+    "Keandalan": 9.5,
+    "Fasilitas": 8.5
+  },
+  {
+    "Penyedia VPS": "Vultr",
+    "Harga": 55,
+    "Performa": 9,
+    "Keandalan": 9,
+    "Fasilitas": 8
+  },
+  {
+    "Penyedia VPS": "Linode",
+    "Harga": 60,
+    "Performa": 9.5,
+    "Keandalan": 9,
+    "Fasilitas": 8.5
+  },
+  {
+    "Penyedia VPS": "Contabo",
+    "Harga": 50,
+    "Performa": 8.5,
+    "Keandalan": 9,
+    "Fasilitas": 8
+  },
+  {
+    "Penyedia VPS": "Kamatera",
+    "Harga": 65,
+    "Performa": 9.5,
+    "Keandalan": 9.5,
+    "Fasilitas": 8.5
+  }
+]

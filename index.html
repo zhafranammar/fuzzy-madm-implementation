@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMPLEMENTASI MADM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 py-4">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="text-white text-2xl font-bold">Implementasi MADM</div>
+        <div class="hidden lg:flex space-x-4" id="navLinks">
+          <a href="index.html" class="text-white font-bold underline"
+            >Overview</a
+          >
+          <a href="saw.html" class="text-white">SAW</a>
+          <a href="wp.html" class="text-white">WP</a>
+          <a href="ahp.html" class="text-white">AHP</a>
+          <a href="topsis.html" class="text-white">Topsis</a>
+          <a href="me.html" class="text-white">Penulis</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto py-8">
+      <h1 class="text-3xl font-bold mb-4">
+        Studi Kasus: Perbandingan Rank VPS Menggunakan Beberapa Metode MADM
+      </h1>
+      <p class="mb-8">
+        Implementasi Multiple Attribute Decision Making (MADM) digunakan untuk
+        membandingkan dan menentukan penyedia Virtual Private Server (VPS)
+        terbaik berdasarkan beberapa kriteria. Dalam studi kasus ini, kami
+        membandingkan VPS berdasarkan harga, performa, keandalan, dan fasilitas
+        yang mereka tawarkan. Tabel di bawah ini menunjukkan data studi kasus
+        VPS.
+      </p>
+      <h1 class="text-2xl text-center font-bold mb-4">
+        Tabel Alterntif Penentuan VPS
+      </h1>
+      <!-- Tampilkan data studi kasus VPS -->
+      <table class="w-full border-collapse border border-gray-400 mb-8">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border border-gray-400 px-4 py-2">Penyedia VPS</th>
+            <th class="border border-gray-400 px-4 py-2">Harga</th>
+            <th class="border border-gray-400 px-4 py-2">Performa</th>
+            <th class="border border-gray-400 px-4 py-2">Keandalan</th>
+            <th class="border border-gray-400 px-4 py-2">Fasilitas</th>
+          </tr>
+        </thead>
+        <tbody id="vpsData">
+          <!-- Data akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+
+      <h1 class="text-2xl text-center font-bold mb-4">
+        Perbandingan Metode MADM
+      </h1>
+      <table
+        id="madmTable"
+        class="w-full border-collapse border border-gray-400 mb-8"
+      ></table>
+
+      <!-- Menampilkan link untuk setiap metode MADM -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white p-4 rounded shadow">
+          <h2 class="text-xl font-bold mb-2">SAW Method</h2>
+          <p>Perhitungan Menggunakan Metode SAW</p>
+          <a href="saw.html" class="text-blue-600 font-bold hover:underline"
+            >View SAW Method</a
+          >
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h2 class="text-xl font-bold mb-2">WP Method</h2>
+          <p>Perhitungan Menggunakan Metode WP</p>
+          <a href="wp.html" class="text-blue-600 font-bold hover:underline"
+            >View WP Method</a
+          >
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h2 class="text-xl font-bold mb-2">AHP Method</h2>
+          <p>Perhitungan Menggunakan Metode AHP</p>
+          <a href="ahp.html" class="text-blue-600 font-bold hover:underline"
+            >View AHP Method</a
+          >
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h2 class="text-xl font-bold mb-2">TOPSIS Method</h2>
+          <p>Perhitungan Menggunakan Metode TOPSIS</p>
+          <a href="topsis.html" class="text-blue-600 font-bold hover:underline"
+            >View TOPSIS Method</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-4">
+      <div class="container mx-auto text-center text-gray-600">
+        &copy; 2023 Muhammad Zhafran Ammar. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Fetch data dari file data.json
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const vpsData = document.getElementById("vpsData")
+
+          // Tampilkan data studi kasus VPS
+          data.forEach((item) => {
+            const row = document.createElement("tr")
+            for (const key in item) {
+              const cell = document.createElement("td")
+              cell.classList.add("border", "border-gray-400", "px-4", "py-2")
+              cell.appendChild(document.createTextNode(item[key]))
+              row.appendChild(cell)
+            }
+            vpsData.appendChild(row)
+          })
+        })
+        .catch((error) => console.error("Error:", error))
+
+      // Fetch data dari file hasil.json (atau file yang berisi hasil perbandingan MADM)
+      fetch("hasil.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const madmTable = document.getElementById("madmTable")
+          const headers = [
+            "Penyedia VPS",
+            "Rank SAW",
+            "Rank WP",
+            "Rank AHP",
+            "Rank Topsis",
+          ]
+
+          // Tampilkan data perbandingan MADM
+          const thead = document.createElement("thead")
+          const headerRow = document.createElement("tr")
+          headers.forEach((headerText) => {
+            const th = document.createElement("th")
+            th.classList.add("border", "border-gray-400", "px-4", "py-2")
+            th.appendChild(document.createTextNode(headerText))
+            headerRow.appendChild(th)
+          })
+          thead.appendChild(headerRow)
+          madmTable.appendChild(thead)
+
+          const tbody = document.createElement("tbody")
+          data.forEach((item) => {
+            const row = document.createElement("tr")
+            for (const key in item) {
+              const cell = document.createElement("td")
+              cell.classList.add("border", "border-gray-400", "px-4", "py-2")
+              cell.appendChild(document.createTextNode(item[key]))
+              row.appendChild(cell)
+            }
+            tbody.appendChild(row)
+          })
+          madmTable.appendChild(tbody)
+        })
+        .catch((error) => console.error("Error:", error))
+    </script>
+  </body>
+</html>

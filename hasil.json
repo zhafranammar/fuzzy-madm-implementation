@@ -1,0 +1,72 @@
+[
+  {
+    "Penyedia VPS": "Hostinger",
+    "Rank SAW": 9,
+    "Rank WP": 9,
+    "Rank AHP": 9,
+    "Rank Topsis": 8
+  },
+  {
+    "Penyedia VPS": "DigitalOcean",
+    "Rank SAW": 5,
+    "Rank WP": 5,
+    "Rank AHP": 5,
+    "Rank Topsis": 4
+  },
+  {
+    "Penyedia VPS": "Niagahoster",
+    "Rank SAW": 10,
+    "Rank WP": 10,
+    "Rank AHP": 3,
+    "Rank Topsis": 10
+  },
+  {
+    "Penyedia VPS": "BiznetGio",
+    "Rank SAW": 7,
+    "Rank WP": 7,
+    "Rank AHP": 5,
+    "Rank Topsis": 7
+  },
+  {
+    "Penyedia VPS": "Google Cloud",
+    "Rank SAW": 1,
+    "Rank WP": 1,
+    "Rank AHP": 1,
+    "Rank Topsis": 5
+  },
+  {
+    "Penyedia VPS": "GreenGeeks",
+    "Rank SAW": 8,
+    "Rank WP": 8,
+    "Rank AHP": 2,
+    "Rank Topsis": 9
+  },
+  {
+    "Penyedia VPS": "Vultr",
+    "Rank SAW": 4,
+    "Rank WP": 4,
+    "Rank AHP": 7,
+    "Rank Topsis": 3
+  },
+  {
+    "Penyedia VPS": "Linode",
+    "Rank SAW": 2,
+    "Rank WP": 2,
+    "Rank AHP": 3,
+    "Rank Topsis": 1
+  },
+  {
+    "Penyedia VPS": "Contabo",
+    "Rank SAW": 6,
+    "Rank WP": 6,
+    "Rank AHP": 9,
+    "Rank Topsis": 6
+  },
+  {
+    "Penyedia VPS": "Kamatera",
+    "Rank SAW": 3,
+    "Rank WP": 3,
+    "Rank AHP": 8,
+    "Rank Topsis": 2
+  }
+]

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMPLEMENTASI MADM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 py-4">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="text-white text-2xl font-bold">Implementasi MADM</div>
+        <div class="hidden lg:flex space-x-4" id="navLinks">
+          <a href="index.html" class="text-white">Overview</a>
+          <a href="saw.html" class="text-white font-bold underline">SAW</a>
+          <a href="wp.html" class="text-white">WP</a>
+          <a href="ahp.html" class="text-white">AHP</a>
+          <a href="topsis.html" class="text-white">Topsis</a>
+          <a href="me.html" class="text-white">Penulis</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto py-8 px-4">
+      <h1 class="text-3xl font-bold mb-4">Perhitungan Metode SAW</h1>
+      <p>
+        Dalam penyelesaian menggunakan metode Simple Additive Weighting (SAW),
+        langkah pertama yang dilakukan adalah normalisasi nilai dari setiap
+        kriteria yang digunakan untuk menilai penyedia Virtual Private Server
+        (VPS). Kriteria yang dipertimbangkan dalam penilaian meliputi harga,
+        performa, keandalan, dan fasilitas dari setiap penyedia VPS. Hasil
+        normalisasi setiap kriteria dapat dilihat pada Tabel Berikut.
+      </p>
+
+      <!-- Tabel 4: Hasil normalisasi setiap kriteria -->
+      <h2 class="text-xl font-bold mb-2 mt-6 text-center">
+        Tabel Hasil normalisasi setiap kriteria dari alternatif menggunakan
+        metode SAW
+      </h2>
+      <table id="tabelNormalisasi" class="table-auto w-full mb-8">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Penyedia VPS</th>
+            <th class="border px-4 py-2">Normalisasi Harga</th>
+            <th class="border px-4 py-2">Normalisasi Performa</th>
+            <th class="border px-4 py-2">Normalisasi Keandalan</th>
+            <th class="border px-4 py-2">Normalisasi Fasilitas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+      <p>
+        Setelah proses normalisasi selesai dilakukan, pada dilakukan perhitungan
+        nilai bobot dari masing-masing kriteria untuk setiap penyedia VPS. Nilai
+        bobot ini kemudian digunakan untuk menghitung nilai Vi dari setiap
+        penyedia VPS. Nilai Vi ini merupakan hasil dari perkalian antara nilai
+        normalisasi dari setiap kriteria dengan bobot yang sesuai.
+      </p>
+      <p>
+        Hasil dari perhitungan nilai Vi memberikan peringkat relatif dari
+        masing-masing penyedia VPS berdasarkan kriteria yang telah dinilai.
+        Penyedia VPS dengan nilai Vi tertinggi menempati peringkat teratas
+        sebagai penyedia VPS yang paling sesuai dengan kriteria yang
+        dipertimbangkan dalam evaluasi ini. Sedangkan penyedia VPS dengan nilai
+        Vi terendah akan berada di peringkat terbawah. Hasil dari Vi setiap
+        alternatif dan perangkingan dapat dilihat pada Tabel Berikut
+      </p>
+      <h2 class="text-xl text-center font-bold mb-2 mt-6">
+        Tabel Perhitungan nilai Vi dan peringkat menggunakan metode SAW
+      </h2>
+      <table id="tabelNilaiV" class="table-auto w-full">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="border px-4 py-2">Penyedia VPS</th>
+            <th class="border px-4 py-2">Nilai Vi</th>
+            <th class="border px-4 py-2">Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data dari JSON akan diisi menggunakan JavaScript -->
+        </tbody>
+      </table>
+
+      <script>
+        // Data JSON untuk tabel normalisasi
+        const dataNormalisasi = [
+          {
+            "Penyedia VPS": "Hostinger",
+            "Normalisasi Harga": 1,
+            "Normalisasi Performa": 0.8,
+            "Normalisasi Keandalan": 0.8,
+            "Normalisasi Fasilitas": 0.8,
+          },
+          {
+            "Penyedia VPS": "DigitalOcean",
+            "Normalisasi Harga": 0.8333333333,
+            "Normalisasi Performa": 0.9,
+            "Normalisasi Keandalan": 0.9,
+            "Normalisasi Fasilitas": 0.9,
+          },
+          {
+            "Penyedia VPS": "Niagahoster",
+            "Normalisasi Harga": 0.7142857143,
+            "Normalisasi Performa": 0.8,
+            "Normalisasi Keandalan": 0.9,
+            "Normalisasi Fasilitas": 0.9,
+          },
+          {
+            "Penyedia VPS": "BiznetGio",
+            "Normalisasi Harga": 0.8333333333,
+            "Normalisasi Performa": 0.9,
+            "Normalisasi Keandalan": 0.8,
+            "Normalisasi Fasilitas": 0.9,
+          },
+          {
+            "Penyedia VPS": "Google Cloud",
+            "Normalisasi Harga": 0.625,
+            "Normalisasi Performa": 1,
+            "Normalisasi Keandalan": 1,
+            "Normalisasi Fasilitas": 1,
+          },
+          {
+            "Penyedia VPS": "GreenGeeks",
+            "Normalisasi Harga": 0.7692307692,
+            "Normalisasi Performa": 0.85,
+            "Normalisasi Keandalan": 0.95,
+            "Normalisasi Fasilitas": 0.85,
+          },
+          {
+            "Penyedia VPS": "Vultr",
+            "Normalisasi Harga": 0.9090909091,
+            "Normalisasi Performa": 0.9,
+            "Normalisasi Keandalan": 0.9,
+            "Normalisasi Fasilitas": 0.8,
+          },
+          {
+            "Penyedia VPS": "Linode",
+            "Normalisasi Harga": 0.8333333333,
+            "Normalisasi Performa": 0.95,
+            "Normalisasi Keandalan": 0.9,
+            "Normalisasi Fasilitas": 0.85,
+          },
+          {
+            "Penyedia VPS": "Contabo",
+            "Normalisasi Harga": 1,
+            "Normalisasi Performa": 0.85,
+            "Normalisasi Keandalan": 0.9,
+            "Normalisasi Fasilitas": 0.8,
+          },
+          {
+            "Penyedia VPS": "Kamatera",
+            "Normalisasi Harga": 0.7692307692,
+            "Normalisasi Performa": 0.95,
+            "Normalisasi Keandalan": 0.95,
+            "Normalisasi Fasilitas": 0.85,
+          },
+        ]
+
+        // Data JSON untuk tabel nilai V
+        const dataNilaiV = [
+          {
+            "Penyedia VPS": "Hostinger",
+            Vi: 0.84,
+            Rank: 9,
+          },
+          {
+            "Penyedia VPS": "DigitalOcean",
+            Vi: 0.8866666667,
+            Rank: 5,
+          },
+          {
+            "Penyedia VPS": "Niagahoster",
+            Vi: 0.8128571429,
+            Rank: 10,
+          },
+          {
+            "Penyedia VPS": "BiznetGio",
+            Vi: 0.8666666667,
+            Rank: 7,
+          },
+          {
+            "Penyedia VPS": "Google Cloud",
+            Vi: 0.925,
+            Rank: 1,
+          },
+          {
+            "Penyedia VPS": "GreenGeeks",
+            Vi: 0.8538461538,
+            Rank: 8,
+          },
+          {
+            "Penyedia VPS": "Vultr",
+            Vi: 0.8918181818,
+            Rank: 4,
+          },
+          {
+            "Penyedia VPS": "Linode",
+            Vi: 0.9066666667,
+            Rank: 2,
+          },
+          {
+            "Penyedia VPS": "Contabo",
+            Vi: 0.885,
+            Rank: 6,
+          },
+          {
+            "Penyedia VPS": "Kamatera",
+            Vi: 0.9038461538,
+            Rank: 3,
+          },
+        ]
+
+        // Menambahkan data ke tabel normalisasi
+        const tabelNormalisasi = document.getElementById("tabelNormalisasi")
+        const tbodyNormalisasi = tabelNormalisasi.querySelector("tbody")
+
+        dataNormalisasi.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyNormalisasi.appendChild(row)
+        })
+
+        // Menambahkan data ke tabel nilai V
+        const tabelNilaiV = document.getElementById("tabelNilaiV")
+        const tbodyNilaiV = tabelNilaiV.querySelector("tbody")
+
+        dataNilaiV.forEach((item) => {
+          const row = document.createElement("tr")
+          for (const key in item) {
+            const cell = document.createElement("td")
+            cell.classList.add("border", "px-4", "py-2")
+            cell.textContent = item[key]
+            row.appendChild(cell)
+          }
+          tbodyNilaiV.appendChild(row)
+        })
+      </script>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-4">
+      <div class="container mx-auto text-center text-gray-600">
+        &copy; 2023 Muhammad Zhafran Ammar. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
